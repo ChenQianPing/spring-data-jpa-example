@@ -49,6 +49,12 @@ public class UserServiceImpl implements IUserService {
         userJpaRepository.save(user);
     }
 
+    /**
+     * @Cacheable 用于一个表示缓存该方法的返回值。后续对该方法的调用，可以不执行该方法，
+     * 直接从缓存中返回结果。
+     * @param id
+     * @return
+     */
     @Cacheable("users")
     public User findOne(long id)
     {
